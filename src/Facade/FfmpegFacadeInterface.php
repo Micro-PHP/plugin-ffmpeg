@@ -2,6 +2,7 @@
 
 namespace Micro\Plugin\Ffmpeg\Facade;
 
+use FFMpeg\Exception\RuntimeException;
 use FFMpeg\Media\Audio;
 use FFMpeg\Media\Video;
 
@@ -13,6 +14,8 @@ interface FfmpegFacadeInterface
      * @param string $filePath
      *
      * @return Video|Audio
+     *
+     * @throws RuntimeException
      */
     public function open(string $filePath): Video|Audio;
 }
