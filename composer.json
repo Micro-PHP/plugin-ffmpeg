@@ -1,0 +1,21 @@
+{
+    "name": "micro/plugin-ffmpeg",
+    "description": "Micro Framework: Wrapper for FFMPEG",
+    "type": "library",
+    "license": "MIT",
+    "version": "0.1",
+    "autoload": {
+        "psr-4": {
+            "Micro\\Plugin\\Ffmpeg\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Stanislau Komar",
+            "email": "stanislau_komar@epam.com"
+        }
+    ],
+    "require": {
+        "php-ffmpeg/php-ffmpeg": "^1.0"
+    }
+}
