@@ -2,18 +2,44 @@
 
 namespace Micro\Plugin\Ffmpeg\Facade;
 
+use FFMpeg\FFMpeg;
+use FFMpeg\FFProbe;
 use FFMpeg\Media\Audio;
 use FFMpeg\Media\Video;
 use Micro\Plugin\Ffmpeg\Business\FfmpegFactory\FfmpegFactoryInterface;
+use Micro\Plugin\Ffmpeg\Business\FfprobeFactory\FfprobeFactoryInterface;
 
+/**
+ * @author Stanislau Komar <head.trackingsoft@gmail.com>
+ */
 class FfmpegFacade implements FfmpegFacadeInterface
 {
-
+    /**
+     * @param FfmpegFactoryInterface $ffmpegFactory
+     * @param FfprobeFactoryInterface $ffprobeFactory
+     */
     public function __construct(
-        private readonly FfmpegFactoryInterface $ffmpegFactory
+        private readonly FfmpegFactoryInterface $ffmpegFactory,
+        private readonly FfprobeFactoryInterface $ffprobeFactory
     )
     {
 
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function ffprobe(): FFProbe
+    {
+        return $this->ffprobeFactory->create();
+    }
+
+    /**
+     * @return FFMpeg
+     */
+    public function ffmpeg(): FFMpeg
+    {
+        return $this->ffmpegFactory->create();
     }
 
     /**

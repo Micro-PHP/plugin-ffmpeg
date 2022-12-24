@@ -3,21 +3,26 @@
 namespace Micro\Plugin\Ffmpeg\Business\FfmpegFactory;
 
 use FFMpeg\FFMpeg;
+use Micro\Plugin\Ffmpeg\Business\FfprobeFactory\FfprobeFactoryInterface;
 use Micro\Plugin\Ffmpeg\Configuration\FfmpegPluginConfigurationInterface;
 use Micro\Plugin\Logger\LoggerFacadeInterface;
 
+/**
+ * @author Stanislau Komar <head.trackingsoft@gmail.com>
+ */
 class FfmpegFactory implements FfmpegFactoryInterface
 {
     /**
      * @param FfmpegPluginConfigurationInterface $pluginConfiguration
+     * @param FfprobeFactoryInterface $ffprobeFactory
      * @param LoggerFacadeInterface $loggerFacade
      */
     public function __construct(
         private readonly FfmpegPluginConfigurationInterface $pluginConfiguration,
+        private readonly FfprobeFactoryInterface $ffprobeFactory,
         private readonly LoggerFacadeInterface $loggerFacade
     )
     {
-
     }
 
     /**
@@ -26,10 +31,7 @@ class FfmpegFactory implements FfmpegFactoryInterface
     public function create(): FFMpeg
     {
         $loggerName = $this->pluginConfiguration->getLogger();
-        $logger = null;
-        if($loggerName) {
-            $logger = $this->loggerFacade->getLogger($loggerName);
-        }
+        $logger = $this->loggerFacade->getLogger($loggerName);
 
         $cfg = [
             'ffmpeg.binaries'   => $this->pluginConfiguration->getFfmpegBinaryPath(),
@@ -38,6 +40,8 @@ class FfmpegFactory implements FfmpegFactoryInterface
             'ffmpeg.threads'    => $this->pluginConfiguration->getThreadsCount(),
         ];
 
-        return FFMpeg::create($cfg,$logger);
+        $ffprobe = $this->ffprobeFactory->create();
+
+        return FFMpeg::create($cfg, $logger, $ffprobe);
     }
 }

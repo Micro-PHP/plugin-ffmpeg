@@ -4,6 +4,8 @@ namespace Micro\Plugin\Ffmpeg\Configuration;
 
 interface FfmpegPluginConfigurationInterface
 {
+    const HW_ACCELERATION_MODE_DEFAULT = 'auto';
+
     /**
      * @return int
      */
@@ -33,4 +35,9 @@ interface FfmpegPluginConfigurationInterface
      * @return string|null
      */
     public function getLogger(): string|null;
+
+    /**
+     * @return string
+     */
+    public function getHwAccelerationMode(): string;
 }
