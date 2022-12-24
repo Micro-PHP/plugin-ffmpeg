@@ -5,6 +5,9 @@ namespace Micro\Plugin\Ffmpeg;
 use Micro\Framework\Kernel\Configuration\PluginConfiguration;
 use Micro\Plugin\Ffmpeg\Configuration\FfmpegPluginConfigurationInterface;
 
+/**
+ * @author Stanislau Komar <head.trackingsoft@gmail.com>
+ */
 class FfmpegPluginConfiguration extends PluginConfiguration implements FfmpegPluginConfigurationInterface
 {
     public const CFG_FFMPEG_BINARIES = 'FFMPEG_BINARIES';
@@ -13,6 +16,7 @@ class FfmpegPluginConfiguration extends PluginConfiguration implements FfmpegPlu
     public const CFG_FFMPEG_THREADS_COUNT = 'FFMPEG_THREADS_COUNT';
     public const CFG_FFMPEG_TEMPORARY_DIRECTORY = 'FFMPEG_TEMPORARY_DIRECTORY';
     public const CFG_FFMPEG_LOGGER = 'FFMPEG_LOGGER';
+    public const CFG_HW_ACCELERATION = 'FFMPEG_HW_ACCELERATION';
 
     /**
      * {@inheritDoc}
@@ -35,7 +39,7 @@ class FfmpegPluginConfiguration extends PluginConfiguration implements FfmpegPlu
      */
     public function getProcessTimeout(): int
     {
-        return (int) $this->configuration->get(self::CFG_FFMPEG_PROCESS_TIMEOUT, 3600);
+        return (int) $this->configuration->get(self::CFG_FFMPEG_PROCESS_TIMEOUT, 0);
     }
 
     /**
@@ -55,10 +59,18 @@ class FfmpegPluginConfiguration extends PluginConfiguration implements FfmpegPlu
     }
 
     /**
-     * @return string|null
+     * {@inheritDoc}
      */
     public function getLogger(): string|null
     {
         return $this->configuration->get(self::CFG_FFMPEG_LOGGER);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getHwAccelerationMode(): string
+    {
+        return $this->configuration->get(self::CFG_HW_ACCELERATION, self::HW_ACCELERATION_MODE_DEFAULT);
     }
 }
