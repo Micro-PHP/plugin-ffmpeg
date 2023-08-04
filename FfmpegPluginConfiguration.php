@@ -2,7 +2,7 @@
 
 namespace Micro\Plugin\Ffmpeg;
 
-use Micro\Framework\Kernel\Configuration\PluginConfiguration;
+use Micro\Framework\BootConfiguration\Configuration\PluginConfiguration;
 use Micro\Plugin\Ffmpeg\Configuration\FfmpegPluginConfigurationInterface;
 
 /**

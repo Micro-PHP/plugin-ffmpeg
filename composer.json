@@ -1,12 +1,11 @@
 {
     "name": "micro/plugin-ffmpeg",
     "description": "Micro Framework: Wrapper for FFMPEG",
-    "type": "library",
+    "type": "micro-plugin",
     "license": "MIT",
-    "version": "1.0",
     "autoload": {
         "psr-4": {
-            "Micro\\Plugin\\Ffmpeg\\": "src/"
+            "Micro\\Plugin\\Ffmpeg\\": "/"
         }
     },
     "authors": [
@@ -16,7 +15,8 @@
         }
     ],
     "require": {
-        "micro/kernel": "^1",
+        "micro/kernel": "^2.0",
         "php-ffmpeg/php-ffmpeg": "^1.0"
-    }
+    },
+    "minimum-stability": "dev"
 }

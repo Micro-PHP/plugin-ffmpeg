@@ -5,7 +5,7 @@ namespace Micro\Plugin\Ffmpeg\Business\FfmpegFactory;
 use FFMpeg\FFMpeg;
 use Micro\Plugin\Ffmpeg\Business\FfprobeFactory\FfprobeFactoryInterface;
 use Micro\Plugin\Ffmpeg\Configuration\FfmpegPluginConfigurationInterface;
-use Micro\Plugin\Logger\LoggerFacadeInterface;
+use Micro\Plugin\Logger\Facade\LoggerFacadeInterface;
 
 /**
  * @author Stanislau Komar <head.trackingsoft@gmail.com>

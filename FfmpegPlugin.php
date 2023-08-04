@@ -2,11 +2,10 @@
 
 namespace Micro\Plugin\Ffmpeg;
 
-use Micro\Component\DependencyInjection\Container;
-use Micro\Framework\Kernel\Plugin\AbstractPlugin;
-use Micro\Framework\Kernel\Plugin\ConfigurableInterface;
-use Micro\Framework\Kernel\Plugin\DependencyProviderInterface;
-use Micro\Framework\Kernel\Plugin\PluginConfigurationTrait;
+use Micro\Framework\DependencyInjection\Container;
+use Micro\Framework\BootConfiguration\Plugin\ConfigurableInterface;
+use Micro\Framework\BootDependency\Plugin\DependencyProviderInterface;
+use Micro\Framework\BootConfiguration\Plugin\PluginConfigurationTrait;
 use Micro\Plugin\Ffmpeg\Business\FfmpegFactory\FfmpegFactory;
 use Micro\Plugin\Ffmpeg\Business\FfmpegFactory\FfmpegFactoryInterface;
 use Micro\Plugin\Ffmpeg\Business\FfprobeFactory\FfprobeFactory;
@@ -14,7 +13,7 @@ use Micro\Plugin\Ffmpeg\Business\FfprobeFactory\FfprobeFactoryInterface;
 use Micro\Plugin\Ffmpeg\Configuration\FfmpegPluginConfigurationInterface;
 use Micro\Plugin\Ffmpeg\Facade\FfmpegFacade;
 use Micro\Plugin\Ffmpeg\Facade\FfmpegFacadeInterface;
-use Micro\Plugin\Logger\LoggerFacadeInterface;
+use Micro\Plugin\Logger\Facade\LoggerFacadeInterface;
 
 /**
  * @author Stanislau Komar <head.trackingsoft@gmail.com>

@@ -4,7 +4,7 @@ namespace Micro\Plugin\Ffmpeg\Business\FfprobeFactory;
 
 use FFMpeg\FFProbe;
 use Micro\Plugin\Ffmpeg\Configuration\FfmpegPluginConfigurationInterface;
-use Micro\Plugin\Logger\LoggerFacadeInterface;
+use Micro\Plugin\Logger\Facade\LoggerFacadeInterface;
 
 /**
  * @author Stanislau Komar <head.trackingsoft@gmail.com>
