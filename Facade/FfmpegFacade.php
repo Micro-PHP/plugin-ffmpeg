@@ -12,17 +12,16 @@ use Micro\Plugin\Ffmpeg\Business\FfprobeFactory\FfprobeFactoryInterface;
 /**
  * @author Stanislau Komar <head.trackingsoft@gmail.com>
  */
-class FfmpegFacade implements FfmpegFacadeInterface
+readonly class FfmpegFacade implements FfmpegFacadeInterface
 {
     /**
      * @param FfmpegFactoryInterface $ffmpegFactory
      * @param FfprobeFactoryInterface $ffprobeFactory
      */
     public function __construct(
-        private readonly FfmpegFactoryInterface $ffmpegFactory,
-        private readonly FfprobeFactoryInterface $ffprobeFactory
-    )
-    {
+        private FfmpegFactoryInterface $ffmpegFactory,
+        private FfprobeFactoryInterface $ffprobeFactory
+    ) {
 
     }
 

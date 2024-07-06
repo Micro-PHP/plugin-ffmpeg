@@ -25,9 +25,6 @@ class FfmpegPlugin implements DependencyProviderInterface, ConfigurableInterface
 
     protected ?LoggerFacadeInterface $loggerFacade;
 
-    /**
-     * {@inheritDoc}
-     */
     public function provideDependencies(Container $container): void
     {
         $container->register(FfmpegFacadeInterface::class, function (LoggerFacadeInterface $loggerFacade) {

@@ -6,8 +6,5 @@ use FFMpeg\FFProbe;
 
 interface FfprobeFactoryInterface
 {
-    /**
-     * @return FFProbe
-     */
     public function create(): FFProbe;
 }
